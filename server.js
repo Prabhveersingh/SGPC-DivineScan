@@ -490,14 +490,14 @@ body{
 <div class="top-khanda right">☬</div>
 
 <div class="gurbani-wrapper">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/7/7f/Logo_of_sgpc.png?20220729000506" class="gurbani-logo" alt="SGPC Logo">
+  <img src="https://raw.githubusercontent.com/dummyAIserver/logos/main/sgpc.png" class="gurbani-logo" alt="SGPC Logo">
 
   <h2 class="gurbani-text">
     ਅਵਲਿ ਅਲਹ ਨੂਰੁ ਉਪਾਇਆ ਕੁਦਰਤਿ ਕੇ ਸਭ ਬੰਦੇ..<br>
     ਏਕ ਨੂਰ ਤੇ ਸਭੁ ਜਗੁ ਉਪਜਿਆ ਕਉਨ ਭਲੇ ਕੋ ਮੰਦੇ॥
   </h2>
 
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBECZ35JT_maSu_idWvUhCY7bwnT42ZUsipw&s" class="gurbani-logo" alt="SGGSWU Logo">
+  <img src="https://raw.githubusercontent.com/dummyAIserver/logos/main/sggswu.png" class="gurbani-logo" alt="SGGSWU Logo">
 </div>
 
 <div class="container">
