@@ -38,7 +38,7 @@ app.post('/guru-scan', upload.single('image'), async (req, res) => {
     try {
       const timestamp = Date.now();
       const scanFolder = path.join(historyDir, timestamp.toString());
-      
+
       // create folder for this scan
       if (!fs.existsSync(scanFolder)) fs.mkdirSync(scanFolder, { recursive: true });
 
@@ -110,7 +110,7 @@ async function googleLensSearch(imageUrl) {
 
     const results = [];
     if (response.data.visual_matches) {
-      response.data.visual_matches.slice(0, 30).forEach(match => {
+      response.data.visual_matches.slice(0, 32).forEach(match => {
         results.push({
           title: match.title || 'Visual Match',
           source: match.source || 'Web',
@@ -197,21 +197,21 @@ body{
   align-items:center;
   justify-content:space-between;
   margin:30px auto 20px;
-  max-width: 1000px;
-  padding:16px 24px;
+  max-width: 1080px;
+  padding:22px 32px;
   border-radius:24px;
   background: linear-gradient(
     135deg,
-    rgba(0,0,0,0.45),
-    rgba(0,0,0,0.25)
+    rgba(255,255,255,0.95),
+    rgba(255,255,255,0.85)
   );
-  box-shadow: 0 14px 40px rgba(0,0,0,0.35);
-  gap:20px;
+  box-shadow: 0 14px 40px rgba(0,0,0,0.2);
+  gap:25px;
 }
 
 .gurbani-logo{
-  width:90px;
-  height:90px;
+  width:120px;
+  height:120px;
   object-fit:contain;
 }
 
@@ -220,8 +220,9 @@ body{
   text-align:center;
   font-size:20px;
   line-height:1.6;
-  color:#ffffff;
-  opacity:0.95;
+  color:#1e3c72;
+  font-weight: 600;
+  opacity:1;
 }
 
 .upload-zone{
@@ -451,15 +452,69 @@ body{
 
 @media(max-width:768px){
   .container{
-    padding:0 6px;
+    padding:0 12px;
   }
 
+  /* Stack Gurbani section vertically on mobile */
   .gurbani-wrapper{
     margin:20px 10px;
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+    padding: 20px;
+  }
+  
+  .gurbani-text {
+    font-size: 16px; /* Smaller text for reading on mobile */
   }
 
+  .gurbani-logo {
+    width: 70px;
+    height: 70px;
+  }
+
+  /* Adjust title size */
+  .app-title {
+    font-size: 20px;
+    padding: 10px 20px;
+    width: 90%; 
+  }
+
+  .header h1 {
+    font-size: 24px; /* Smaller header */
+  }
+
+  /* Make upload zone more compact */
+  .upload-zone {
+    padding: 40px 20px;
+  }
+
+  /* Full width buttons for better touch target */
+  .scan-btn {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+  }
+
+  /* Resize Khanda symbols so they don't block content */
+  .top-khanda,
+  .bottom-khanda {
+    font-size: 24px;
+    opacity: 0.6; /* Less intrusive */
+  }
+  .top-khanda.left{ top:10px; left:10px; }
+  .top-khanda.right{ top:10px; right:10px; }
+  .bottom-khanda.left{ bottom:10px; left:10px; }
+  .bottom-khanda.right{ bottom:10px; right:10px; }
+
+  /* Adjust Results Grid */
   .results-grid{
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+  
+  .results-section {
+    padding: 40px 15px;
   }
 }
 
@@ -637,5 +692,5 @@ async function scanGuru(){
 
 // ✅ PORT
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, ()=>console.log('🚀 SGPC Guru Scanner running on',PORT));
+app.listen(PORT, () => console.log('🚀 SGPC Guru Scanner running on', PORT));
 
